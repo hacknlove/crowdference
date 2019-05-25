@@ -1,0 +1,32 @@
+<head>
+  <title>crowdference-estilo</title>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+    integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      __ventanas = [
+        {
+          _id:  "link",
+          _c: 'primary'
+        },
+        {
+          _id:  "uses",
+          _c: 'secondary'
+        }
+      ]
+    </script>
+
+</head>
+
+<body lang="es">
+  {{> header}}
+  <section class="container">
+    <div id="primary">
+      {{> _ventanas container="primary"}}
+    </div>
+    <div id="secondary">
+      {{> _ventanas container="secondary"}}
+      {{> sponsors}}
+    </div>
+  </section>
+  {{>footer}}
+</body>

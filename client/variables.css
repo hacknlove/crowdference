@@ -1,0 +1,15 @@
+body {
+    --top-bar-height: 47px;
+    --top-bar-border: 3px;
+    --top-bar-background: #fdfdfd;
+    --small-margin: 10px;
+    --secondary-column-width: 250px;
+    --icon-information-width: 170px;
+    --preview-image-width: 160px;
+    --backgroud-hover: rgba(0,0,0,.2);
+    --top-bar-icons-size: calc(var(--top-bar-height) / 2);
+    --main-color: rgb(244, 36, 36);
+    --soft-color: #362a2a;
+    --ink: #040a0a;
+    --external-title: rgb(13, 20, 165);
+}

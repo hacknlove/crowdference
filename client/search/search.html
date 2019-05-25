@@ -1,0 +1,9 @@
+<template name="search">
+    <h2>
+        <i class="fas fa-search"></i>
+        Search
+    </h2>
+    {{#each link in links}}
+        {{> cardLink link=link}}
+    {{/each}}
+</template>

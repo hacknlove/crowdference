@@ -1,0 +1,32 @@
+<template name="cardLink">
+    <div class="card-link">
+        <div class="icon-information">
+            <div>
+                {{link.votes}}<div>votes</div>
+            </div>
+            <div>
+                {{link.links}}<div>links</div>
+            </div>
+            <div>
+                {{link.uses}}<div>uses</div>
+            </div>
+            {{#if link.image}}
+                <div class="image" style="background-image: url({{link.image}}">
+                </div>
+            {{/if}}
+        </div>
+        <div class="content">
+            <h3 class="title">{{link.title}}</h3>
+            <a class="link"
+                href="">{{link.url.[0]}}</a>
+            <div class="body">
+                {{#if link.image}}
+                    <div class="image"
+                        style="background-image: url({{link.image}}">
+                    </div>
+                {{/if}}
+                <div>{{link.description}}</div>
+            </div>
+        </div>
+    </div>
+</template>
