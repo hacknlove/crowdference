@@ -3,18 +3,13 @@
         <div class="title">
             {{link.title}}
         </div>
-        <a class="link" href="">{{link.url.[0]}}</a>
-        <div class="description">{{link.description}}</div>
-        <div class="icon-information">
+        <div class="link">
             <div>
-                {{link.votes}}&nbsp;<div>votes</div>
+                <i class="fas fa-bookmark"></i>
+                {{link.bookmarks}}
             </div>
-            <div>
-                {{link.links}}&nbsp;<div>links</div>
-            </div>
-            <div>
-                {{link.uses}}&nbsp;<div>uses</div>
-            </div>
+            <a class="link" href="">{{link.url.[0]}}</a>
         </div>
+        <div class="description">{{link.description}}</div>
     </div>
 </template>

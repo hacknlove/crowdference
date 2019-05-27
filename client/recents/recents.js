@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 
-Template.ranking.helpers({
+Template.recents.helpers({
     links: [
         {
             title: 'Lanzados con éxito los primeros 60 satélites Starlink de Space X que proporcionarán Internet de alta velocidad desde el espacio',

@@ -1,17 +1,11 @@
 <template name="sponsors">
-    <h3><i class="fas fa-hands-helping"></i> Colaborations</h3>
-
-    <div>
-        <h4>
-            Advertise here your social project.
-        </h4>
-        <p>Contact <a href="mailto:info@crowdference.org">info@crowdference.org</a> to talk about it</p>
-
+    <h3><i class="fas fa-hands-helping"></i> {{_ 'Colaborations'}}</h3>
+    <div class="sponsors">
+        {{#each sponsor in sponsors}}
+            <a href="{{sponsor.href}}">
+                <img
+                src="{{sponsor.src}}"/>
+            </a>
+        {{/each}}
     </div>
-
-    <a href="http://www.fsf.org/associate/support_freedom/join_fsf?referrer=2442"><img
-        style="width: 100%" src="//static.fsf.org/fsforg/img/normal-image.png" alt="Support freedom"
-        title="Help protect your freedom, join the Free Software Foundation" /></a>
-
-
 </template>

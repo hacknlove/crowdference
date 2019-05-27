@@ -1,0 +1,14 @@
+{
+  "name": "cosas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "csvtojs.js",
+  "scripts": {
+    "start": "node csvtojs.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "papaparse": "^4.6.3"
+  }
+}

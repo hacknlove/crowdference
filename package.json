@@ -12,6 +12,6 @@
     "meteor-node-stubs": "^0.4.1"
   },
   "otherStuff": {
-    "external dependence":  "docker run --name yacy -p 8090:8090 -p 8443:8443 --log-opt max-size=200m --log-opt max-file=2 luccioman/yacy"
+    "external dependence": "docker run --name yacy -p 8090:8090 -p 8443:8443 --log-opt max-size=200m --log-opt max-file=2 luccioman/yacy"
   }
 }

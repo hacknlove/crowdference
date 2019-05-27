@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 
-Template.bookmarks.helpers({
+Template.backClip.helpers({
     links: [
         {
             title: 'Atentado contra la división de poderes',
@@ -25,6 +25,6 @@ Template.bookmarks.helpers({
             description: '',
             url: ['http://www.senado.es/web/conocersenado/normas/reglamentootrasnormassenado/detallesreglamentosenado/index.html'],
             bookmarks: 12
-        },
+        }
     ]
 })

@@ -1,10 +1,24 @@
 <template name="link">
     <div id="link">
-        <h2><i class="fas fa-paperclip"></i> May abandona su nuevo plan para el Brexit y prepara su dimisión</h2>
-        <div class="image" style="background-image: url(https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/05/23/Recortada/_20190523125422661-kfxH-U462421278706O0C-992x558@LaVanguardia-Web.jpg)" alt=""></div>
-        <a class="link">https://www.lavanguardia.com/internacional/20190523/462421278706/theresa-may-brexit-elecciones-europeas-dimision.html</a>
-        <div>La primera ministra británica, Theresa May, se ve sometida a una intensa presión para fijar una fecha para su salida del
-        cargo después de que fracasara su última maniobra para el Brexit, eclipsando...</div>
+        <div class="link-votes">
+            <div>
+                <i class="fas fa-bookmark"></i>
+                56
+            </div>
+        </div>
+        <div class="link">
+            <h2>{{link.title}}</h2>
+            <div class="image" style="background-image: url({{link.image}})" alt=""></div>
+            <a class="link">{{link.url.[0]}}</a>
+            <div>{{link.description}}</div>
+            <h4>12 {{link.links}} {{_ 'clipped URLs'}}</h4>
+            <form>
+                <input type="text" placeholder="{{_ 'clip related URLs'}}">
+                <i class="fas fa-paperclip"></i>
+            </form>
+        </div>
     </div>
-    <form><input type="text"></form>
+    {{#each l in links}}
+        {{> cardLink link=l}}
+    {{/each}}
 </template>

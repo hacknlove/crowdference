@@ -2,14 +2,15 @@ body {
     --top-bar-height: 47px;
     --top-bar-border: 3px;
     --top-bar-background: #fdfdfd;
-    --small-margin: 10px;
+    --small-margin: 15px;
     --secondary-column-width: 250px;
     --icon-information-width: 170px;
     --preview-image-width: 160px;
-    --backgroud-hover: rgba(0,0,0,.2);
+    --backgroud-hover: #00000033;
     --top-bar-icons-size: calc(var(--top-bar-height) / 2);
-    --main-color: rgb(244, 36, 36);
+    --main-color: #f42424;
     --soft-color: #362a2a;
+    --light-color: #b1a0a0;
     --ink: #040a0a;
-    --external-title: rgb(13, 20, 165);
+    --external-title: #0d14a5;
 }

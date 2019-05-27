@@ -1,18 +1,8 @@
 <template name="bookmarks">
-    {{#if containerIs 'primary'}}
-        <h2><i class="fas fa-bookmark"></i>
-            Bookmarks
-        </h2>
-        {{#each link in links}}
-            {{> cardLink link=link}}
-        {{/each}}
-    {{else}}
-        <h3 class="navigate"><i class="fas fa-bookmark"></i>
-            Bookmarks
-        </h3>
-        {{#each link in links}}
-            {{> prevLink link=link}}
-        {{/each}}
-    {{/if}}
-
+    <h2><i class="fas fa-bookmark"></i>
+        {{_ 'My Bookmarks'}}
+    </h2>
+    {{#each link in links}}
+        {{> cardLink link=link}}
+    {{/each}}
 </template>

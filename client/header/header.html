@@ -8,17 +8,29 @@
                 </a>
             </div>
             <form id="search">
-                <input type="search" placeholder="search links in crowdference">
-                <i class="fas fa-search"></i>
+                <input type="search" placeholder="{{_ 'search links in crowdference'}}">
+                <div title="{{_ 'Search'}}">
+                    <i class="fas fa-search"></i>
+                </div>
             </form>
             <div class="icon-actions">
-                <div>
-                    <i class="fas fa-bookmark"></i>
-                </div>
-                <div>
+                <div class="ranking" title="{{_ 'Ranking'}}">
                     <i class="fas fa-sort"></i>
                 </div>
-
+                <div class="bookmarks" title="{{_ 'Bookmarks'}}">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="recents" title="{{_ 'Recents'}}">
+                    <i class="fas fa-satellite-dish"></i>
+                </div>
+                <div class="language" title="{{_ 'Language'}}">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="menu">
+                    {{#each lang in languages}}
+                        <div class="changeLanguage {{idiomaActivo lang}}" data-lang="{{lang}}">{{_ lang}}</div>
+                    {{/each}}
+                </div>
             </div>
         </div>
     </header>

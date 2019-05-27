@@ -1,19 +1,16 @@
 <template name="cardLink">
     <div class="card-link">
-        <div class="icon-information">
+        <div class="link-votes">
             <div>
-                {{link.votes}}<div>votes</div>
+                {{#if link.bookmarks}}
+                    <i class="fas fa-bookmark"></i>
+                    {{link.bookmarks}}
+                {{else}}
+                    <i class="fas fa-caret-up"></i>
+                    {{link.votes}}
+                    <i class="fas fa-caret-down"></i>
+                {{/if}}
             </div>
-            <div>
-                {{link.links}}<div>links</div>
-            </div>
-            <div>
-                {{link.uses}}<div>uses</div>
-            </div>
-            {{#if link.image}}
-                <div class="image" style="background-image: url({{link.image}}">
-                </div>
-            {{/if}}
         </div>
         <div class="content">
             <h3 class="title">{{link.title}}</h3>

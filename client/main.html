@@ -6,12 +6,19 @@
       __ventanas = [
         {
           _id:  "link",
+          // _id:  "ranking",
           _c: 'primary'
         },
         {
-          _id:  "uses",
+          _id:  "backClip",
+          // _id:  "bookmarks",
           _c: 'secondary'
-        }
+        },
+        {
+          _id:  "sponsors",
+          _c: 'secondary'
+        },
+
       ]
     </script>
 
@@ -25,7 +32,6 @@
     </div>
     <div id="secondary">
       {{> _ventanas container="secondary"}}
-      {{> sponsors}}
     </div>
   </section>
   {{>footer}}
