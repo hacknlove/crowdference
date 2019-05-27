@@ -26,6 +26,98 @@ body {
     max-width: 1200px;
     box-sizing: border-box;
 }
+#portada {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 1000;
+    div {
+        text-align: center;
+        transform: perspective(500px) rotateY(5deg) rotateX(-10deg);
+        transition: transform .3s ease-out;
+        &:hover, &:focus-within {
+            transform: perspective(0px) rotateY(0deg) rotateX(0deg);
+        }
+    }
+    img {
+        width: 300px;
+    }
+    p {
+        color: var(--external-title);
+        position: relative;
+        height: 0;
+        margin: 0;
+        top: -60px;
+        text-decoration: underline;
+        cursor: pointer;
+        svg {
+            color: var(--top-bar-background);
+            position: relative;
+            top: 12px;
+            right: 32px;
+        }
+    }
+    img:hover + p {
+        text-decoration: none;
+        svg {
+            color: transparent;
+        }
+    }
+    p:hover {
+        text-decoration: underline;
+        svg {
+            color: transparent;
+        }
+    }
+    form {
+        margin: 0;
+        position: relative;
+        input {
+            height: var(--top-bar-height);
+            box-sizing: border-box;
+            width: 100%;
+            box-sizing: border-box;
+            border: 0;
+            padding-left: var(--small-margin);
+            padding-right: ~"calc(var(--top-bar-icons-size) + 2 * var(--small-margin))";
+        }
+        transition: box-shadow .3s ease-out;
+        box-shadow: 0 1px 0 rgb(250, 250, 251), 0 1px 6px rgba(59,64,69,0.1);
+        &:hover, &:focus-within {
+            box-shadow: 0 1px 0 rgb(250, 250, 251), 0 2px 8px rgba(59,64,69,0.2);
+        }
+        div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: var(--top-bar-height);
+            width: var(--top-bar-height);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover {
+                background: var(--backgroud-hover);
+            }
+        }
+        svg{
+            height: 100%;
+            color: var(--main-color);
+            right: var(--small-margin);
+            font-size: var(--top-bar-icons-size);
+            cursor: pointer;
+        }
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 #top-bar {
     position: fixed;
     z-index: 1;

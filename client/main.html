@@ -2,30 +2,18 @@
   <title>crowdference-estilo</title>
   <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
     integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
-    <script type="text/javascript">
+    <script>
       __ventanas = [
         {
-          _id:  "link",
-          // _id:  "ranking",
-          _c: 'primary'
-        },
-        {
-          _id:  "backClip",
-          // _id:  "bookmarks",
-          _c: 'secondary'
-        },
-        {
-          _id:  "sponsors",
-          _c: 'secondary'
-        },
-
+          _id: 'portada',
+          _c: 'top'
+        }
       ]
     </script>
-
 </head>
 
 <body lang="es">
-  {{> header}}
+  {{> _ventanas container="top"}}
   <section class="container">
     <div id="primary">
       {{> _ventanas container="primary"}}
@@ -34,5 +22,5 @@
       {{> _ventanas container="secondary"}}
     </div>
   </section>
-  {{>footer}}
+  {{>_ventanas container="bottom"}}
 </body>
