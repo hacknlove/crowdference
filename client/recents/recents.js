@@ -1,5 +1,18 @@
 import { Template } from 'meteor/templating'
 
+Template.recents.show = function () {
+    ventanas.cleanContainers()
+    ventanas.insert({
+        _id: 'recents',
+        _c: 'primary'
+    })
+    ventanas.insert({
+        _id: 'sponsors',
+        _c: 'secondary'
+    })
+    ventanas.conf('path', '/recents')
+}
+
 Template.recents.helpers({
     links: [
         {

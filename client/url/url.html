@@ -1,0 +1,31 @@
+<template name="url">
+    <div id="url">
+        <div class="url-votes">
+            <div>
+                <i class="fas fa-bookmark"></i>
+                {{url.bookmarks}}
+            </div>
+        </div>
+        <div class="url">
+            <h2><a class="title" href="{{url.url.[0]}}" target="_blank"><i class="fas fa-external-link-alt"></i> {{url.title}}</a></h2>
+            {{#if url.image}}
+                <div class="image" style="background-image: url({{url.image}})" alt=""></div>
+            {{/if}}
+            <a class="link">{{url.url.[0]}}</a>
+            <div>{{url.description}}</div>
+            <h4>{{url.urls}} {{_ 'clipped URLs'}}</h4>
+            {{#unless newLink}}
+                <form>
+                    <input type="text" placeholder="{{_ 'clip related URLs'}}">
+                    <i class="fas fa-paperclip"></i>
+                </form>
+            {{/unless}}
+        </div>
+    </div>
+    {{#if newLink}}
+        {{> cardUrl url=newLink isNewLink=true}}
+    {{/if}}
+    {{#each l in fromUrlId}}
+        {{> cardUrl url=l isLink=true fromUrlId=url._id}}
+    {{/each}}
+</template>

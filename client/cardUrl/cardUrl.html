@@ -1,0 +1,39 @@
+<template name="cardUrl">
+    <div id="{{url._id}}" class="card-url">
+        <div class="url-votes">
+            <div>
+                {{#if isNewLink}}
+                    <i class="fas fa-check acceptNewLink"></i>
+                    &nbsp;
+                    <i class="fas fa-times rejectNewLink"></i>
+                {{/if}}
+                {{#if isUrl}}
+                    <i class="fas fa-bookmark"></i>
+                    {{url.bookmarks}}
+                    {{/if}}
+                {{#if isLink}}
+                    <i class="fas fa-caret-up"></i>
+                    {{votes}}
+                    <i class="fas fa-caret-down"></i>
+                    <div>
+                        <i class="fas fa-bookmark"></i>
+                        {{url.bookmarks}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="content">
+            <h3 class="title">{{url.title}}</h3>
+            <a class="link"
+                href="{{url.url.[0]}}">{{url.url.[0]}}</a>
+            <div class="body">
+                {{#if url.image}}
+                    <div class="image"
+                        style="background-image: url({{url.image}}">
+                    </div>
+                {{/if}}
+                <div>{{url.description}}</div>
+            </div>
+        </div>
+    </div>
+</template>

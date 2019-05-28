@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
-    "meteor-node-stubs": "^0.4.1"
+    "cheerio": "^1.0.0-rc.3",
+    "joi": "^14.3.1",
+    "meteor-node-stubs": "^0.4.1",
+    "open-graph-scraper": "^3.6.1"
   },
-  "otherStuff": {
-    "external dependence": "docker run --name yacy -p 8090:8090 -p 8443:8443 --log-opt max-size=200m --log-opt max-file=2 luccioman/yacy"
+  "devDependencies": {
+    "standard": "^12.0.1"
   }
 }

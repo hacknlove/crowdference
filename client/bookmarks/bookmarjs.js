@@ -1,4 +1,19 @@
 import { Template } from 'meteor/templating'
+import { ventanas } from 'meteor/hacknlove:ventanas'
+import { Mongo } from 'meteor/mongo'
+
+Template.bookmarks.show = function () {
+  ventanas.cleanContainers()
+  ventanas.insert({
+    _id: 'bookmarks',
+    _c: 'primary'
+  })
+  ventanas.insert({
+    _id: 'sponsors',
+    _c: 'secondary'
+  })
+  ventanas.conf('path', '/bookmarks')
+}
 
 Template.bookmarks.helpers({
     links: [
@@ -27,4 +42,12 @@ Template.bookmarks.helpers({
             bookmarks: 12
         },
     ]
+})
+
+Template.bookmarks.collection = new Mongo.Collection(null)
+/* eslint-disable-next-line */
+new PersistentMinimongo2(Template.bookmarks.collection, 'bookmarks')
+
+Template.registerHelper('isInBookmarks', function (urlId) {
+  return Template.bookmarks.collection.findOne(urlId)
 })

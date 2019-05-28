@@ -1,0 +1,10 @@
+<template name="backLinks">
+    <h3 class="navigate">
+        <i class="fas fa-level-up-alt"></i> {{_ 'Backlinks'}}
+    </h3>
+    {{#each link in links}}
+        {{> prevLink link=link}}
+    {{else}}
+        {{_ 'There are no backlinks yet'}}
+    {{/each}}
+</template>
