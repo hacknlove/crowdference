@@ -316,6 +316,9 @@ section.container {
                 flex-direction: column;
                 align-items: flex-end;
                 &>div {
+                    &.active {
+                        color: var(--main-color);
+                    }
                     text-align: center;
                     line-height: .5;
                     display: flex;
@@ -382,7 +385,9 @@ section.container {
                 flex-direction: column;
                 align-items: flex-end;
                 &>div {
-
+                    &.active {
+                        color: var(--main-color);
+                    }
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -434,6 +439,10 @@ section.container {
                 align-items: center;
                 margin: .4ex 0;
                 div {
+                    &.active {
+                        color: var(--main-color);
+                    }
+                    cursor: pointer;
                     font-size: .7rem;
                     color: var(--light-color);
                     flex-shrink: 0;

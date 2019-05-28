@@ -1,3 +1,4 @@
+/* global localStorage */
 import { Template } from 'meteor/templating'
 import { ventanas } from 'meteor/hacknlove:ventanas'
 import { idiomas } from '/common/traducciones'

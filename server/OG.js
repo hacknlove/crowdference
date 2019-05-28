@@ -98,18 +98,32 @@ ventanas.use('/ranking', function (sink, match, v) {
   ])
 })
 
-// ventanas.use('/f', function (sink, match, v) {
-//   OG(sink, {
-//     title: 'Crowdference - favorites',
-//     description: 'Here you keep your favorite links',
-//     image: `${process.env.ROOT_URL}logoletras.png`,
-//     url: `${process.env.ROOT_URL}f`
-//   }, [
-//     {
-//       _id: 'favoritos'
-//     }
-//   ])
-// })
+ventanas.use('/bookmarks', function (sink, match, v) {
+  OG(sink, {
+    title: 'Crowdference - bookmarks',
+    description: 'Here you keep your favorite links',
+    image: `${process.env.ROOT_URL}logoletras.png`,
+    url: `${process.env.ROOT_URL}f`
+  }, [
+    {
+      _id: 'header',
+      _c: 'top'
+    },
+    {
+      _id: 'footer',
+      _c: 'bottom'
+    },
+    {
+      _id: 'bookmarks',
+      _c: 'primary'
+    },
+    {
+      _id: 'sponsors',
+      _c: 'secondary'
+    }
+  ])
+})
+
 // ventanas.use('/s/:busqueda', function (sink, match, v) {
 //   OG(sink, {
 //     title: 'Crowdference - Search',

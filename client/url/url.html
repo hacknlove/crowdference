@@ -1,10 +1,7 @@
 <template name="url">
     <div id="url">
         <div class="url-votes">
-            <div>
-                <i class="fas fa-bookmark"></i>
-                {{url.bookmarks}}
-            </div>
+            {{> bookmarkActions url=url}}
         </div>
         <div class="url">
             <h2><a class="title" href="{{url.url.[0]}}" target="_blank"><i class="fas fa-external-link-alt"></i> {{url.title}}</a></h2>

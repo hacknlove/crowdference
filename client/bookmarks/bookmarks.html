@@ -2,7 +2,13 @@
     <h2><i class="fas fa-bookmark"></i>
         {{_ 'My Bookmarks'}}
     </h2>
-    {{#each link in links}}
-        {{> cardLink link=link}}
+    {{#each b in bookmarks}}
+        {{> bookmark b}}
     {{/each}}
+</template>
+
+<template name="bookmark">
+    {{#if url}}
+        {{> cardUrl url=url actions="bookmarkActions"}}
+    {{/if}}
 </template>

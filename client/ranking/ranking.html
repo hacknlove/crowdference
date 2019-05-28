@@ -4,6 +4,6 @@
         {{_ 'Ranking'}}
     </h2>
     {{#each l in urls}}
-        {{> cardUrl url=l isUrl=true}}
+        {{> cardUrl url=l actions="bookmarkActions"}}
     {{/each}}
 </template>

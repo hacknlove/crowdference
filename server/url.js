@@ -12,9 +12,12 @@ const validaciones = {
   voteLink: Joi.object().keys({
     fromUrlId: validacionesComunes._id.required(),
     toUrlId: validacionesComunes._id.required(),
-    vote: Joi.number().valid([-1, 1])
+    vote: Joi.number().valid([-1, 1]).required()
   }),
-  links: validacionesComunes._id
+  bookmark: Joi.object().keys({
+    _id: validacionesComunes._id.required(),
+    action: Joi.number().valid([-1, 1]).required()
+  })
 }
 
 Meteor.methods({
@@ -85,6 +88,18 @@ Meteor.methods({
         [`links.${opciones.fromUrlId}`]: opciones.vote
       }
     })
+  },
+  bookmark (opciones) {
+    salirValidacion({
+      data: opciones,
+      schema: validaciones.bookmark
+    })
+
+    urls.update(opciones._id, {
+      $inc: {
+        bookmarks: opciones.action
+      }
+    })
   }
 })
 
@@ -94,9 +109,17 @@ Meteor.publish('viewUrl', function (_id) {
     schema: validacionesComunes._id
   })
 
-  console.log(_id)
-
   return urls.find({
     ids: _id
+  })
+})
+
+Meteor.publish('urlId', function (_id) {
+  salirValidacion({
+    data: _id,
+    schema: validacionesComunes._id
+  })
+  return urls.find({
+    _id
   })
 })

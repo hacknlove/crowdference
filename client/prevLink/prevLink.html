@@ -4,10 +4,7 @@
             {{link.title}}
         </div>
         <div class="link">
-            <div>
-                <i class="fas fa-bookmark"></i>
-                {{link.bookmarks}}
-            </div>
+            {{> bookmarkActions url=link}}
             <a class="link" href="">{{link.url.[0]}}</a>
         </div>
         <div class="description">{{link.description}}</div>
