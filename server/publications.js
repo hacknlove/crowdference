@@ -9,3 +9,12 @@ Meteor.publish('ranking', function (_id) {
     limit: 100
   })
 })
+
+Meteor.publish('recents', function () {
+  return urls.find({}, {
+    sort: {
+      lastActivity: -1
+    },
+    limit: 100
+  })
+})
