@@ -1,9 +1,10 @@
 import { Template } from 'meteor/templating'
 import { Meteor } from 'meteor/meteor'
+import { bookmarks } from '/client/main'
 
 Template.bookmarkActions.helpers({
   bookmarked () {
-    return Template.bookmarks.collection.findOne({
+    return bookmarks.findOne({
       _id: this.url._id
     }) ? 'active' : 'inactive'
   }
@@ -11,14 +12,14 @@ Template.bookmarkActions.helpers({
 
 Template.bookmarkActions.events({
   'click .active' () {
-    Template.bookmarks.collection.remove(this.url._id)
+    bookmarks.remove(this.url._id)
     Meteor.call('bookmark', {
       _id: this.url._id,
       action: -1
     })
   },
   'click .inactive' () {
-    Template.bookmarks.collection.insert({
+    bookmarks.insert({
       _id: this.url._id
     })
     Meteor.call('bookmark', {

@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating'
 import { ventanas } from 'meteor/hacknlove:ventanas'
-import { Mongo } from 'meteor/mongo'
 import { urls } from '/common/baseDeDatos'
+import { bookmarks } from '/client/main'
 
 Template.bookmarks.show = function () {
   ventanas.cleanContainers()
@@ -18,13 +18,9 @@ Template.bookmarks.show = function () {
 
 Template.bookmarks.helpers({
   bookmarks () {
-    return Template.bookmarks.collection.find()
+    return bookmarks.find()
   }
 })
-
-Template.bookmarks.collection = new Mongo.Collection(null)
-/* eslint-disable-next-line */
-new PersistentMinimongo2(Template.bookmarks.collection, 'bookmarks')
 
 Template.bookmark.onCreated(function () {
   this.subscribe('urlId', this.data._id)
