@@ -2,24 +2,6 @@
     <div id="{{url._id}}" class="card-url">
         <div class="url-votes">
             {{> Template.dynamic template=actions data=this}}
-            {{#if isNewLink}}
-                <div>
-                    <i class="fas fa-check acceptNewLink"></i>
-                    &nbsp;
-                    <i class="fas fa-times rejectNewLink"></i>
-                </div>
-            {{/if}}
-            {{#if isLink}}
-                <div>
-                    <i class="fas fa-caret-up"></i>
-                    {{votes}}
-                    <i class="fas fa-caret-down"></i>
-                    <div>
-                        <i class="fas fa-bookmark"></i>
-                        {{url.bookmarks}}
-                    </div>
-                </div>
-            {{/if}}
         </div>
         <div class="content">
             <h3 class="title">{{url.title}}</h3>

@@ -20,9 +20,26 @@
         </div>
     </div>
     {{#if newLink}}
-        {{> cardUrl url=newLink isNewLink=true}}
+        {{> cardUrl url=newLink actions="newLinkActions"}}
     {{/if}}
     {{#each l in fromUrlId}}
-        {{> cardUrl url=l isLink=true fromUrlId=url._id}}
+        {{> cardUrl url=l actions="votesActions" fromUrlId=url._id}}
     {{/each}}
+</template>
+
+<template name="newLinkActions">
+    <div>
+        <i class="fas fa-check acceptNewLink"></i>
+        &nbsp;
+        <i class="fas fa-times rejectNewLink"></i>
+    </div>
+</template>
+
+<template name="votesActions">
+    <div>
+        <i class="fas fa-caret-up"></i>
+        {{votes}}
+        <i class="fas fa-caret-down"></i>
+        {{> bookmarkActions url=url}}
+    </div>
 </template>

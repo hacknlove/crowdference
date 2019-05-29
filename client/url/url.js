@@ -33,7 +33,9 @@ Template.url.helpers({
       fromUrlId: this.url._id
     }, {
       sort: {
-        [`votes.${this.url._id}`]: -1
+        [`votes.${this.url._id}`]: -1,
+        bookmarks: -1,
+        lastActivity: -1
       }
     })
   }
@@ -54,7 +56,6 @@ Template.url.events({
     }
 
     Meteor.call('url', input, (e, r) => {
-      console.log(e, r)
       if (e) {
         return ventanas.error(e)
       }
@@ -67,13 +68,16 @@ Template.url.events({
   },
   'click form svg' (event, template) {
     template.$('form').submit()
-  },
+  }
+})
+
+Template.newLinkActions.events({
   'click .acceptNewLink' (event, template) {
+    const url = ventanas.findOne('url')
     Meteor.call('addLink', {
-      fromUrlId: template.data.url._id,
-      toUrlId: this.url._id
+      fromUrlId: url.url._id,
+      toUrlId: url.newLink._id
     }, (e, r) => {
-      console.log(e, r)
       ventanas.update('url', {
         $unset: {
           newLink: 1
@@ -87,5 +91,11 @@ Template.url.events({
         newLink: 1
       }
     })
+  }
+})
+
+Template.votesActions.helpers({
+  votes () {
+    return this.url.votes[this.fromUrlId]
   }
 })
