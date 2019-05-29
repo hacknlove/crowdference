@@ -1,6 +1,6 @@
 /* global db */
 
-db.links.createIndex({
+db.urls.createIndex({
   title: 'text',
   description: 'text',
   url: 'text'

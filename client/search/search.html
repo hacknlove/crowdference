@@ -3,7 +3,7 @@
         <i class="fas fa-search"></i>
         {{_ 'Search'}}
     </h2>
-    {{#each link in links}}
-        {{> cardLink link=link}}
+    {{#each u in urls}}
+        {{> cardUrl url=u actions="bookmarkActions"}}
     {{/each}}
 </template>

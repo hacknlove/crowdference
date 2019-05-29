@@ -52,7 +52,7 @@ Template.url.events({
       return
     }
 
-    if (!input.match(/^http(s?):\/\/[-0-9a-z.]+\.[-0-9a-z.]/i)) {
+    if (!input.match(/^(https?:\/\/)?([\da-z.-]+\.[a-z.]{2,6}|[\d.]+)([/:?=&#]{1}[\da-z.-]+)*[/?]?$/i)) {
       return
     }
 

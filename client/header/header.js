@@ -25,6 +25,17 @@ Template.header.events({
     setTimeout(() => {
       template.$('.menu').removeClass('show')
     }, 200)
+  },
+  'click #search div' (event, template) {
+    template.$('#search').submit()
+  },
+  'submit #search' (event, template) {
+    event.preventDefault()
+    const busqueda = template.$('#search input').val().trim()
+    if (!busqueda) {
+      return
+    }
+    Template.search.show(busqueda)
   }
 })
 
@@ -36,5 +47,12 @@ Template.header.helpers({
       return 'activo'
     }
     return idioma === l && 'activo'
+  },
+  search () {
+    const search = ventanas.findOne('search')
+    if (!search) {
+      return ''
+    }
+    return search.search
   }
 })

@@ -149,20 +149,32 @@ ventanas.use('/bookmarks', function (sink, match, v) {
   ])
 })
 
-// ventanas.use('/s/:busqueda', function (sink, match, v) {
-//   OG(sink, {
-//     title: 'Crowdference - Search',
-//     description: `search "decodeURIComponent(match.busqueda)" in link`,
-//     image: `${process.env.ROOT_URL}logoletras.png`,
-//     url: `${process.env.ROOT_URL}s/${match.busqueda}`
-//   }, [
-//     {
-//       _id: 'busqueda',
-//       busqueda: decodeURIComponent(match.busqueda)
-//     }
-//   ])
-// })
-
+ventanas.use('/search/:search', function (sink, match, v) {
+  OG(sink, {
+    title: 'Crowdference - Search',
+    description: `search "decodeURIComponent(match.search)" in link`,
+    image: `${process.env.ROOT_URL}logoletras.png`,
+    url: `${process.env.ROOT_URL}search/${match.search}`
+  }, [
+    {
+      _id: 'header',
+      _c: 'top'
+    },
+    {
+      _id: 'footer',
+      _c: 'bottom'
+    },
+    {
+      _id: 'search',
+      _c: 'primary',
+      search: match.search
+    },
+    {
+      _id: 'sponsors',
+      _c: 'secondary'
+    }
+  ])
+})
 
 // ventanas.useRegex(/(?:)/, [], function (sink) {
 //   OG(sink, {
