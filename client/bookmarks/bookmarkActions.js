@@ -11,14 +11,16 @@ Template.bookmarkActions.helpers({
 })
 
 Template.bookmarkActions.events({
-  'click .active' () {
+  'click .active' (event) {
+    event.stopPropagation()
     bookmarks.remove(this.url._id)
     Meteor.call('bookmark', {
       _id: this.url._id,
       action: -1
     })
   },
-  'click .inactive' () {
+  'click .inactive' (event) {
+    event.stopPropagation()
     bookmarks.insert({
       _id: this.url._id
     })

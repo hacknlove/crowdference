@@ -75,24 +75,22 @@ Meteor.methods({
     })
   },
   voteLink (opciones) {
+    console.log(opciones)
     salirValidacion({
       data: opciones,
       schema: validaciones.voteLink
     })
 
     urls.findOne({
-      _id: opciones.fromUrlId,
-      [`links.${opciones.fromUrlId}`]: {
-        $exists: 1
-      }
-    }) || salir(404, '"from" not found')
+      _id: opciones.toUrlId
+    }) || salir(404, '"to" not found')
 
     urls.update(opciones.toUrlId, {
       $set: {
         lastActivity: new Date()
       },
       $inc: {
-        [`links.${opciones.fromUrlId}`]: opciones.vote
+        [`votes.${opciones.fromUrlId}`]: opciones.vote
       }
     })
     urls.update(opciones.fromUrlId, {

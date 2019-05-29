@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating'
 import { ventanas } from 'meteor/hacknlove:ventanas'
 import { urls } from '/common/baseDeDatos'
 import { Meteor } from 'meteor/meteor'
+import { votes } from '/client/main'
 
 Template.url.show = function (url) {
   ventanas.cleanContainers()
@@ -97,5 +98,68 @@ Template.newLinkActions.events({
 Template.votesActions.helpers({
   votes () {
     return this.url.votes[this.fromUrlId]
+  },
+  vote () {
+    const vote = votes.findOne({
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id
+    })
+
+    if (!vote) {
+      return 'vote'
+    }
+    if (vote.vote === 1) {
+      return 'unUpVote active'
+    }
+    return 'unDownVote active'
+  }
+})
+
+Template.votesActions.events({
+  'click .vote>.upVote' () {
+    votes.insert({
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id,
+      vote: 1
+    })
+    Meteor.call('voteLink', {
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id,
+      vote: 1
+    })
+  },
+  'click .vote>.downVote' () {
+    votes.insert({
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id,
+      vote: -1
+    })
+    Meteor.call('voteLink', {
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id,
+      vote: -1
+    })
+  },
+  'click .unUpVote' () {
+    votes.remove({
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id
+    })
+    Meteor.call('voteLink', {
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id,
+      vote: -1
+    })
+  },
+  'click .unDownVote' () {
+    votes.remove({
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id
+    })
+    Meteor.call('voteLink', {
+      fromUrlId: this.fromUrlId,
+      toUrlId: this.url._id,
+      vote: 1
+    })
   }
 })
