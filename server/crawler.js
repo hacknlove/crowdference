@@ -95,7 +95,8 @@ export const insertar = function insertar (url) {
     return l
   }
   url._id = Random.insecure.id()
-  url.actualizado = new Date()
+  url.contentUpdated = new Date()
+  url.lastActivity = new Date()
   url.bookmarks = 0
   url.totalLinks = 0
   url.totalBackLinks = 0
