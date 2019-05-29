@@ -44,6 +44,9 @@ Meteor.methods({
     }
 
     urls.update(opciones.fromUrlId, {
+      $set: {
+        lastActivity: new Date()
+      },
       $push: {
         toUrlId: opciones.toUrlId
       },
@@ -56,6 +59,10 @@ Meteor.methods({
     })
 
     urls.update(opciones.toUrlId, {
+      $set: {
+        lastActivity: new Date(),
+        [`votes.${opciones.fromUrlId}`]: 0
+      },
       $push: {
         fromUrlId: opciones.fromUrlId
       },
@@ -64,9 +71,6 @@ Meteor.methods({
       },
       $inc: {
         totalBackLinks: 1
-      },
-      $set: {
-        [`votes.${opciones.fromUrlId}`]: 0
       }
     })
   },
@@ -83,9 +87,17 @@ Meteor.methods({
       }
     }) || salir(404, '"from" not found')
 
-    urls.update(opciones.fromUrlId, {
+    urls.update(opciones.toUrlId, {
+      $set: {
+        lastActivity: new Date()
+      },
       $inc: {
         [`links.${opciones.fromUrlId}`]: opciones.vote
+      }
+    })
+    urls.update(opciones.fromUrlId, {
+      $set: {
+        lastActivity: new Date()
       }
     })
   },
@@ -96,6 +108,9 @@ Meteor.methods({
     })
 
     urls.update(opciones._id, {
+      $set: {
+        lastActivity: new Date()
+      },
       $inc: {
         bookmarks: opciones.action
       }
