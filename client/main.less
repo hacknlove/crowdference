@@ -317,15 +317,6 @@ section.container {
             padding-bottom: var(--small-margin);
             padding: var(--small-margin);
             color: var(--soft-color);
-            div.image {
-                flex-shrink: 0;
-                width: 160px;
-                max-height: 160px;
-                min-height: 80px;
-                background-size: cover;
-                background-position: center;
-                margin-right: var(--small-margin);
-            }
 
             .url-votes {
                 color: var(--light-color);
@@ -383,6 +374,9 @@ section.container {
                 }
                 .body {
                     display: flex;
+                    @media (max-width: 450px) {
+                        flex-direction: column;
+                    }
                     div.image {
                         flex-shrink: 0;
                         width: 160px;
@@ -397,6 +391,11 @@ section.container {
                             min-height: 60px;
 
                         }
+                        @media (max-width: 450px) {
+                            width: 100%;
+                            height: 100px;
+                        }
+
                     }
                 }
 
@@ -409,6 +408,9 @@ section.container {
             h2 {
                 color: var(--soft-color);
                 margin-left: 0;
+                .title {
+                    white-space: normal;
+                }
             }
             &>.url {
                 &>.image {
@@ -433,20 +435,8 @@ section.container {
                     align-items: center;
                     font-size: 1.5rem;
                     &>svg {
-                        font-size: 3rem;
+                        font-size: var(--action-bigger);
                         cursor: pointer;
-                    }
-                    &>div {
-                        margin-top: var(--small-margin);
-                        cursor: pointer;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        font-size: 1rem;
-                        svg {
-                            margin-bottom: .5rem;
-                            font-size: 1rem;
-                        }
                     }
                 }
             }
@@ -530,5 +520,8 @@ footer {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        @media (max-width: 800px) {
+            flex-direction: column;
+        }
     }
 }
