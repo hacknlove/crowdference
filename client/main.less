@@ -138,10 +138,23 @@ body {
         justify-content: center;
         align-items: center;
         width: var(--secondary-column-width);
+        @media (max-width: 500px) {
+            width: auto;
+        }
+        h1 {
+            @media (max-width: 900px) {
+                display: none;
+            }
+        }
         img {
             height: var(--top-bar-height);
             padding: 5% var(--small-margin) 5% 0;
             box-sizing: border-box;
+            @media (max-width: 500px) {
+                padding: 10%;
+                height: auto;
+                width: var(--top-bar-height);
+            }
         }
         a {
             text-decoration: none;
@@ -283,12 +296,18 @@ section.container {
     min-height: ~"calc(100vh - 2 * var(--top-bar-height))";
     display: grid;
     grid-template-columns: 1fr var(--secondary-column-width);
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
     #primary {
         h2 {
-            margin-left: var(--icon-information-width);
             padding-left: var(--small-margin);
+            margin-left: var(--icon-information-width);
         }
         padding: var(--small-margin);
+        @media (max-width: 500px) {
+            padding: 0;
+        }
         .card-url {
             display: grid;
             // grid-template-columns: var(--top-bar-height) 1fr;
@@ -326,7 +345,7 @@ section.container {
                     align-items: center;
                     font-size: 1.2rem;
                     &>svg {
-                        font-size: 2rem;
+                        font-size: var(--action-big);
                         cursor: pointer;
                     }
                     &.unUpVote {
@@ -372,6 +391,12 @@ section.container {
                         background-size: cover;
                         background-position: center;
                         margin-right: var(--small-margin);
+                        @media (max-width: 600px) {
+                            width: 120px;
+                            max-height: 120px;
+                            min-height: 60px;
+
+                        }
                     }
                 }
 
