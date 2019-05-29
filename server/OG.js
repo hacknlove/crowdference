@@ -98,6 +98,31 @@ ventanas.use('/ranking', function (sink, match, v) {
   ])
 })
 
+ventanas.use('/recents', function (sink, match, v) {
+  OG(sink, {
+    title: 'Crowdference - Recent Activity',
+    description: 'Watch the last additions and changes',
+    image: `${process.env.ROOT_URL}logoletras.png`,
+    url: `${process.env.ROOT_URL}f`
+  }, [
+    {
+      _id: 'header',
+      _c: 'top'
+    },
+    {
+      _id: 'footer',
+      _c: 'bottom'
+    },
+    {
+      _id: 'recents',
+      _c: 'primary'
+    },
+    {
+      _id: 'sponsors',
+      _c: 'secondary'
+    }
+  ])
+})
 ventanas.use('/bookmarks', function (sink, match, v) {
   OG(sink, {
     title: 'Crowdference - bookmarks',
