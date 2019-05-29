@@ -3,7 +3,7 @@
         <i class="fas fa-satellite-dish"></i>
         {{_ 'Recent Activity'}}
     </h2>
-    {{#each link in links}}
-        {{> cardUrl link=link}}
+    {{#each u in urls}}
+        {{> cardUrl url=u actions="bookmarkActions"}}
     {{/each}}
 </template>
