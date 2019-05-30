@@ -4,7 +4,8 @@ import { ventanas } from 'meteor/hacknlove:ventanas'
 import { urls } from '/common/baseDeDatos'
 
 Template.search.show = function (search) {
-  if (search.match(/^(https?:\/\/)?([\da-z.-]+\.[a-z.]{2,6}|[\d.]+)([/:?=&#]{1}[\da-z.-]+)*[/?]?$/igm)) {
+  console.log(search)
+  if (search.match(/^(https?:\/\/)?[\da-z-]+\.+[\da-z-.]+[/?#][^ ]*$/i)) {
     return Meteor.call('url', search, (e, r) => {
       console.log(e, r)
       if (e) {
