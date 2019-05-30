@@ -25,7 +25,7 @@ const OG = function (sink, datos, ventanas) {
 ventanas.use('/', function (sink, match, v) {
   OG(sink, {
     title: 'Yes, we Link',
-    description: 'IA is great, buy WE ARE greater. There is no algorithm capable of understand what means to be human. This is our world, this is our home, this is our technology. Only we can fix the society of mess- information. The URLs are ours to link. Make internet human again!',
+    description: 'AI is great, buy WE ARE greater. There is no algorithm capable of understand what means to be human. This is our world, this is our home, this is our technology. Only we can fix the society of mess- information. The URLs are ours to link. Make internet human again!',
     image: `${process.env.ROOT_URL}logoletras.png`,
     url: process.env.ROOT_URL
   }, [
