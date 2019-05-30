@@ -1,10 +1,11 @@
 import { Meteor } from 'meteor/meteor'
+import { testUrl } from '/common/regex'
 import Joi from 'joi'
 
 export const validacionesComunes = {
   _id: Joi.string(),
   texto: Joi.string(),
-  href: Joi.string().regex(/^(https?:\/\/)?[\da-z-]+\.+[\da-z-.]+[/?#][^ ]*$/i)
+  href: Joi.string().regex(testUrl)
 }
 
 export const salir = function salir (codigo, mensaje, debug) {

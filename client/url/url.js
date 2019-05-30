@@ -3,6 +3,7 @@ import { ventanas } from 'meteor/hacknlove:ventanas'
 import { urls } from '/common/baseDeDatos'
 import { Meteor } from 'meteor/meteor'
 import { votes } from '/client/main'
+import { testUrl } from '/common/regex'
 
 Template.url.show = function (url) {
   ventanas.cleanContainers()
@@ -52,7 +53,7 @@ Template.url.events({
       return
     }
 
-    if (!input.match(/^(https?:\/\/)?([\da-z.-]+\.[a-z.]{2,6}|[\d.]+)([/:?=&#]{1}[\da-z.-]+)*[/?]?$/i)) {
+    if (!input.match(testUrl)) {
       return
     }
 
