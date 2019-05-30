@@ -40,19 +40,28 @@ export const actualizar = function actualizar (url) {
     opciones = {
       html: HTTP.get(url, {
         headers: {
-          'User-Agent': 'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)'
+          'User-Agent': 'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)',
+          'Accept-Language': 'en-US'
         }
       }).content
     }
   } else {
     opciones = {
-      url
+      url,
+      headers: {
+        'User-Agent': 'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)',
+        'Accept-Language': 'en-US, en'
+      }
     }
   }
 
   response = meteorOGS(opciones)
 
   if (!response) {
+    return
+  }
+
+  if (!response.data) {
     return
   }
 
@@ -78,6 +87,9 @@ export const actualizar = function actualizar (url) {
 }
 
 export const insertar = function insertar (url) {
+  if (!url) {
+    return
+  }
   const l = urls.findOne({
     url: {
       $in: url.url
