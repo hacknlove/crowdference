@@ -46,7 +46,7 @@ ventanas.use('/view/:url', function (sink, match, v) {
     title: `yes, we link | "${url.title}"`,
     description: `Find related links made by people like you, and make more links yourself`,
     image: url.image,
-    url: `${process.env.ROOT_URL}l/${url.url[0]}`
+    url: `${process.env.ROOT_URL}view/${url.url[0]}`
   }, [
     {
       _id: 'header',
@@ -77,7 +77,7 @@ ventanas.use('/ranking', function (sink, match, v) {
     title: 'Crowdference - Ranking',
     description: 'See the most bokmarked links',
     image: `${process.env.ROOT_URL}/logoletras.png`,
-    url: `${process.env.ROOT_URL}r`
+    url: `${process.env.ROOT_URL}ranking`
   }, [
     {
       _id: 'header',
@@ -103,7 +103,7 @@ ventanas.use('/recents', function (sink, match, v) {
     title: 'Crowdference - Recent Activity',
     description: 'Watch the last additions and changes',
     image: `${process.env.ROOT_URL}logoletras.png`,
-    url: `${process.env.ROOT_URL}f`
+    url: `${process.env.ROOT_URL}recents`
   }, [
     {
       _id: 'header',
@@ -128,7 +128,7 @@ ventanas.use('/bookmarks', function (sink, match, v) {
     title: 'Crowdference - bookmarks',
     description: 'Here you keep your favorite links',
     image: `${process.env.ROOT_URL}logoletras.png`,
-    url: `${process.env.ROOT_URL}f`
+    url: `${process.env.ROOT_URL}bookmarks`
   }, [
     {
       _id: 'header',
@@ -167,7 +167,7 @@ ventanas.use('/search/:search', function (sink, match, v) {
     {
       _id: 'search',
       _c: 'primary',
-      search: match.search
+      search: decodeURIComponent(match.search)
     },
     {
       _id: 'sponsors',
@@ -176,20 +176,20 @@ ventanas.use('/search/:search', function (sink, match, v) {
   ])
 })
 
-// ventanas.useRegex(/(?:)/, [], function (sink) {
-//   OG(sink, {
-//     title: 'Crowdference - Not found',
-//     description: 'Check the url and try again',
-//     image: `${process.env.ROOT_URL}/logoletras.png`
-//   }, [
-//     {
-//       _id: 'portada'
-//     },
-//     {
-//       template: 'alerta',
-//       titulo: 'Not found',
-//       clase: 'error',
-//       contenido: 'Check the url and try again'
-//     }
-//   ])
-// })
+ventanas.useRegex(/(?:)/, [], function (sink) {
+  OG(sink, {
+    title: 'Crowdference - Not found',
+    description: 'Check the url and try again',
+    image: `${process.env.ROOT_URL}/logoletras.png`
+  }, [
+    {
+      _id: 'portada'
+    },
+    {
+      template: 'alerta',
+      titulo: 'Not found',
+      clase: 'error',
+      contenido: 'Check the url and try again'
+    }
+  ])
+})
