@@ -1,1 +1,1 @@
-export const testUrl = /^(https?:\/\/)?[\da-z-]+\.+[\da-z-.]+[/?#][^ ]*$/i
+export const testUrl = /^(https?:\/\/)?[\da-z-]+\.+[\da-z-.]+([/?#][^ ]*)?$/i

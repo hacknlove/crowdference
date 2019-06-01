@@ -11,5 +11,12 @@ db.urls.createIndex({
 })
 
 db.urls.createIndex({
+  urlToId: 1
+})
+db.urls.createIndex({
+  urlFromId: 1
+})
+
+db.urls.createIndex({
   lastActivity: 1
 })
