@@ -20,3 +20,10 @@ db.urls.createIndex({
 db.urls.createIndex({
   lastActivity: 1
 })
+
+db.urls.createIndex({
+  votesFrom: 1
+})
+db.urls.createIndex({
+  votesTo: 1
+})
