@@ -7,6 +7,10 @@ Template.backLinks.helpers({
     const toUrlId = ventanas.findOne('url').url._id
     return urls.find({
       toUrlId
+    }, {
+      sort: {
+        votesTo: -1
+      }
     })
   }
 })

@@ -35,7 +35,7 @@ Template.url.helpers({
       fromUrlId: this.url._id
     }, {
       sort: {
-        [`votes.${this.url._id}`]: -1,
+        [`votesFrom.${this.url._id}`]: -1,
         bookmarks: -1,
         lastActivity: -1
       }
@@ -98,7 +98,7 @@ Template.newLinkActions.events({
 
 Template.votesActions.helpers({
   votes () {
-    return this.url.votes[this.fromUrlId]
+    return this.url.votesFrom[this.fromUrlId]
   },
   vote () {
     const vote = votes.findOne({

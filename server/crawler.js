@@ -114,7 +114,8 @@ export const insertar = function insertar (url) {
   url.totalBackLinks = 0
   url.toUrlId = []
   url.fromUrlId = []
-  url.votes = {}
+  url.votesFrom = {}
+  url.votesTo = {}
   url.ids = [url._id]
 
   urls.insert(url)

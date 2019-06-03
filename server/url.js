@@ -45,7 +45,8 @@ Meteor.methods({
 
     urls.update(opciones.fromUrlId, {
       $set: {
-        lastActivity: new Date()
+        lastActivity: new Date(),
+        [`votesTo.${opciones.toUrlId}`]: 0
       },
       $push: {
         toUrlId: opciones.toUrlId
@@ -61,7 +62,7 @@ Meteor.methods({
     urls.update(opciones.toUrlId, {
       $set: {
         lastActivity: new Date(),
-        [`votes.${opciones.fromUrlId}`]: 0
+        [`votesFrom.${opciones.fromUrlId}`]: 0
       },
       $push: {
         fromUrlId: opciones.fromUrlId
@@ -90,12 +91,13 @@ Meteor.methods({
         lastActivity: new Date()
       },
       $inc: {
-        [`votes.${opciones.fromUrlId}`]: opciones.vote
+        [`votesFrom.${opciones.fromUrlId}`]: opciones.vote
       }
     })
     urls.update(opciones.fromUrlId, {
       $set: {
-        lastActivity: new Date()
+        lastActivity: new Date(),
+        [`votesTo.${opciones.toUrlId}`]: opciones.vote
       }
     })
   },
