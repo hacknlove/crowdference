@@ -1,9 +1,10 @@
 {
-  "name": "crowdference-estilo",
+  "name": "crowdference-webapp",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "deploy": "ssh root@online2.hacknlove.org cat /var/www/cimeteor/local.sh | bash"
+    "build": "bash build.sh"
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
