@@ -100,11 +100,12 @@ export const insertar = function insertar (url) {
   })
 
   if (l) {
+    l.url.splice(3)
+    l.url.push(url.url)
+
     urls.update(l._id, {
-      $addToSet: {
-        url: {
-          $each: url.url
-        }
+      $set: {
+        url: l.url
       }
     })
     return l
