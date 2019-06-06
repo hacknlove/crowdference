@@ -36,7 +36,8 @@ ventanas.use('/', function (sink, match, v) {
 })
 
 ventanas.use('/view/:url', function (sink, match, v) {
-  var url = decodeURIComponent(match.url)
+  console.log(sink)
+  var url = sink.request.url.href.substr('/view/'.length)
 
   url = urls.findOne({
     url

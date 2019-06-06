@@ -17,7 +17,7 @@ Template.url.show = function (url) {
     _c: 'secondary',
     urlId: url._id
   })
-  ventanas.conf('path', `/view/${encodeURIComponent(url.url[0])}`)
+  ventanas.conf('path', `/view/${url.url[0]}`)
   window.scrollTo(0, 0)
 }
 
