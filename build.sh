@@ -13,3 +13,5 @@ docker build .build/ -t hacknlove/$NAME:$VERSION
 rm -rf .build
 
 docker push hacknlove/$NAME:$VERSION
+docker tag hacknlove/$NAME:$VERSION hacknlove/$NAME:latest
+docker push hacknlove/$NAME:latest
