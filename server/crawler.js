@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor'
 import { urls } from '/common/baseDeDatos'
 import { salirValidacion, validacionesComunes } from '/server/comun'
 import { Random } from 'meteor/random'
-
+import { removeProtocol } from '/common/helpers'
 import ogs from 'open-graph-scraper'
 
 const meteorOGS = Meteor.wrapAsync(function (opciones, callback) {
@@ -66,9 +66,12 @@ export const actualizar = function actualizar (url) {
   }
 
   if (response.data.ogUrl) {
-    url = Array.from(new Set([response.data.ogUrl, url]))
+    url = Array.from(new Set([
+      removeProtocol(response.data.ogUrl),
+      removeProtocol(url)
+    ]))
   } else {
-    url = [url]
+    url = [removeProtocol(url)]
   }
 
   var siteName = response.data.ogSiteName || response.data.twitterSite
