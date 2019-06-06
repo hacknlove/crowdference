@@ -26,6 +26,7 @@ Template.portada.show = function () {
     _id: 'footer'
   })
   ventanas.conf('path', '/')
+  window.scrollTo(0, 0)
 }
 
 Template.portada.events({

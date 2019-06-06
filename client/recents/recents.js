@@ -13,6 +13,7 @@ Template.recents.show = function () {
     _c: 'secondary'
   })
   ventanas.conf('path', '/recents')
+  window.scrollTo(0, 0)
 }
 
 Template.recents.onCreated(function () {

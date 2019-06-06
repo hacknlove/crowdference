@@ -13,6 +13,7 @@ Template.ranking.show = function () {
     _c: 'secondary'
   })
   ventanas.conf('path', '/ranking')
+  window.scrollTo(0, 0)
 }
 
 Template.ranking.onCreated(function () {

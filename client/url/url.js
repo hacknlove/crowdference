@@ -18,6 +18,7 @@ Template.url.show = function (url) {
     urlId: url._id
   })
   ventanas.conf('path', `/view/${encodeURIComponent(url.url[0])}`)
+  window.scrollTo(0, 0)
 }
 
 Template.url.onCreated(function () {

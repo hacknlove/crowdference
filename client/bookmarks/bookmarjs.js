@@ -14,6 +14,7 @@ Template.bookmarks.show = function () {
     _c: 'secondary'
   })
   ventanas.conf('path', '/bookmarks')
+  window.scrollTo(0, 0)
 }
 
 Template.bookmarks.helpers({

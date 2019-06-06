@@ -27,6 +27,7 @@ Template.search.show = function (search) {
     _c: 'secondary'
   })
   ventanas.conf('path', `/search/${encodeURIComponent(search)}`)
+  window.scrollTo(0, 0)
 }
 
 Template.search.onCreated(function () {
