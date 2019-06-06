@@ -35,9 +35,12 @@ ventanas.use('/', function (sink, match, v) {
   ])
 })
 
-ventanas.use('/view/:url', function (sink, match, v) {
+ventanas.use('/view/(:url*)', function (sink, match, v) {
   console.log(sink)
   var url = sink.request.url.href.substr('/view/'.length)
+
+  console.log("////////////////////////////////")
+  console.log(url)
 
   url = urls.findOne({
     url
