@@ -76,7 +76,6 @@ Meteor.methods({
     })
   },
   voteLink (opciones) {
-    console.log(opciones)
     salirValidacion({
       data: opciones,
       schema: validaciones.voteLink

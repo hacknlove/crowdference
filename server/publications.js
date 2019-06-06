@@ -21,7 +21,6 @@ Meteor.publish('recents', function () {
 })
 
 Meteor.publish('search', function (search) {
-  console.log(search)
   salirValidacion({
     data: search,
     schema: validacionesComunes.texto

@@ -5,7 +5,6 @@ import { urls } from '/common/baseDeDatos'
 import { testUrl } from '/common/regex'
 
 Template.search.show = function (search) {
-  console.log(search)
   if (search.match(testUrl)) {
     return Meteor.call('url', search, (e, r) => {
       console.log(e, r)
