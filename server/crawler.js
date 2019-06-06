@@ -1,4 +1,3 @@
-import { HTTP } from 'meteor/http'
 import { Meteor } from 'meteor/meteor'
 import { urls } from '/common/baseDeDatos'
 import { salirValidacion, validacionesComunes } from '/server/comun'
@@ -34,24 +33,11 @@ const rrss = {
 
 export const actualizar = function actualizar (url) {
   var response
-  var opciones
-
-  if (url.match(/https:\/\/www.facebook/)) {
-    opciones = {
-      html: HTTP.get(url, {
-        headers: {
-          'User-Agent': 'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)',
-          'Accept-Language': 'en-US'
-        }
-      }).content
-    }
-  } else {
-    opciones = {
-      url,
-      headers: {
-        'User-Agent': 'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)',
-        'Accept-Language': 'en-US, en'
-      }
+  var opciones = {
+    url,
+    headers: {
+      'User-Agent': 'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)',
+      'Accept-Language': 'en-US, en'
     }
   }
 
